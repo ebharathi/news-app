@@ -20,7 +20,7 @@ const Cnews = () => {
           axios.get(`https://news-app-serverside.herokuapp.com/api/category/${cat}`)
                .then(res=>res.data.articles.map((a)=>a.publishedAt==pathname?setData(a):''))
             
-            },code)
+            },[code])
      
   return (
     <div className='news-section'>

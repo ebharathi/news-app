@@ -9,14 +9,14 @@ import Navbar from '../Navbar';
 
 const News = () => {
       const pathname=decodeURI(useLocation().pathname).substring(22);
-      console.log(pathname);
+      // console.log(pathname);
       const code=decodeURI(useLocation().pathname).substring(9,11).toLowerCase();
-      console.log(code);
+      // console.log(code);
     const [data,setData]=useState([]);
     useEffect(()=>{
           axios.get(`https://news-app-serverside.herokuapp.com/api/country/${code}`)
                .then(res=>res.data.articles.map((a)=>a.publishedAt.toUpperCase()==pathname.toUpperCase()?setData(a):''))
-            },code)
+            },[code])
      
   return (
     <div className='news-section'>

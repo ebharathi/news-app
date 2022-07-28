@@ -21,9 +21,28 @@ const closeNav=()=>{
 </div> */
 
 
+
 /*CSS*/
+
+
 .sidebar{
       display: none;
+}
+/* ::placeholder{
+  font-size: 25px;
+} */
+.dropdown-menu{
+  background-color:#2b2b2b !important ;
+}
+.dropdown-menu a{
+  color:rgb(208, 202, 202);
+}
+
+@media only screen and (min-width:620px)
+{
+  .container-fluid{
+    margin:0px 25px;
+  }
 }
 @media only screen and (max-width:576px)
   {
@@ -38,7 +57,7 @@ const closeNav=()=>{
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #f0f0f0;
+  background-color: #2b2b2b !important;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -47,7 +66,7 @@ const closeNav=()=>{
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: #b3aaaa !important;
   display: block;
   transition: 0.3s;
 }

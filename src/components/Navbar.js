@@ -7,8 +7,9 @@ import '../sidenav.css';
 import ReactFlagsSelect from "react-flags-select";
 const Navbar = () => {
       const locationPath=decodeURI(useLocation().pathname).substring(9,11).toUpperCase();
-      console.log(locationPath);
+      // console.log(locationPath);
  const [selected, setSelected] = useState(locationPath);
+ const [search,setSearch]=useState("entertainment");
 
  const Navigate=useNavigate();
  const openNav=()=>{
@@ -30,7 +31,7 @@ const closeNav=()=>{
  }
   return (
      <nav className='navbar navbar-dark bg-dark navbar-expand-sm'>
-       <div className="container">
+       <div className="container-fluid">
            <a href="#" className="navbar-brand">𝔹𝕦𝕫𝕫ℕ𝕖𝕨𝕤</a>
            <div className="collapse navbar-collapse">
                  <ul className="navbar-nav">
@@ -42,12 +43,16 @@ const closeNav=()=>{
                               <ul className="dropdown-menu">
                                     <li><a className="dropdown-item" href="/category/headlines">General</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="/category/entertainment">Entertainment</a></li>
+                                    <li><a className="dropdown-item" href="/category/movie">Movies</a></li>
+                                    <li><a className="dropdown-item" href="/category/football">Football</a></li>
                                     <li><a className="dropdown-item" href="/category/technology">Technology</a></li>
                                     <li><a className="dropdown-item" href="/category/science">Science</a></li>
                                     <li><a className="dropdown-item" href="/category/sports">Sports</a></li>
                                     <li><a className="dropdown-item" href="/category/business">Business</a></li>
                                     <li><a className="dropdown-item" href="/category/health">Health</a></li>
+                                    <li><a className="dropdown-item" href="/category/weather">Weather</a></li>
+                                    <li><a className="dropdown-item" href="/category/bbc">BBC</a></li>
+                                    <li><a className="dropdown-item" href="/category/new york">New York Times</a></li>
                               </ul>
                             
                        </div>
@@ -56,6 +61,9 @@ const closeNav=()=>{
            {/* <li className='countrySelector' style={{float:'right',cursor:'pointer'}}>
                             <img onClick={changeCountry} className="flag" style={{width:23}} src="https://images.emojiterra.com/twitter/v13.1/512px/1f1ee-1f1f3.png"/>
             </li> */}
+                <div className="search ms-auto">
+                        <input type="text" className='form-control' id='search' placeholder='Search here' onChange={(e)=>setSearch(e.target.value)} onKeyPress={(e)=>e.key=="Enter"?Navigate(`/category/${search}`):''} />
+                </div>
            </div>
            <ReactFlagsSelect
                               className='me-auto'
@@ -78,16 +86,26 @@ const closeNav=()=>{
                                 Categories
                               </a>
                               <ul className="dropdown-menu">
-                                    <li><a className="dropdown-item" href="/category/headlines">General</a></li>
+                              <li><a className="dropdown-item" href="/category/headlines">General</a></li>
                                     <li><hr className="dropdown-divider" /></li>
-                                    <li><a className="dropdown-item" href="/category/entertainment">Entertainment</a></li>
+                                    <li><a className="dropdown-item" href="/category/movie">Movies</a></li>
+                                    <li><a className="dropdown-item" href="/category/football">Football</a></li>
                                     <li><a className="dropdown-item" href="/category/technology">Technology</a></li>
                                     <li><a className="dropdown-item" href="/category/science">Science</a></li>
                                     <li><a className="dropdown-item" href="/category/sports">Sports</a></li>
                                     <li><a className="dropdown-item" href="/category/business">Business</a></li>
                                     <li><a className="dropdown-item" href="/category/health">Health</a></li>
+                                    <li><a className="dropdown-item" href="/category/weather">Weather</a></li>
+                                    <li><a className="dropdown-item" href="/category/bbc">BBC</a></li>
+                                    <li><a className="dropdown-item" href="/category/new york">New York Times</a></li>
                               </ul>
 
+                       </div>
+                       <br />
+                       <div className="search ms-auto">
+                        <input type="text" className='form-control' id='search' placeholder='' onChange={(e)=>setSearch(e.target.value)} style={{height:50,width:200,marginLeft:30}} />
+                        <br />
+                        <button className='btn btn-outline-light' style={{height:50,marginLeft:30}} onClick={(e)=>Navigate(`/category/${search}`)} >SEARCH</button>
                        </div>
                   </div>
             </div> 

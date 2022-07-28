@@ -13,7 +13,7 @@ const Main = () => {
   useEffect(()=>{
       axios.get(`https://news-app-serverside.herokuapp.com/api/category/${path}`)
            .then((res)=>setData(res.data.articles))
-  },path)
+  },[path])
 
   return (
       <div className='category'>

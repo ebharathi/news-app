@@ -12,7 +12,7 @@ const News = () => {
  //getting country code by route
  const Navigate=useNavigate();
  let locationPath=decodeURI(useLocation().pathname).substring(9).toUpperCase();
-      console.log(locationPath);
+      // console.log(locationPath);
 if(locationPath==":ID")
    {
          locationPath="IN"
@@ -29,7 +29,7 @@ if(locationPath==":ID")
   axios.get(`https://news-app-serverside.herokuapp.com/api/country/${locationPath.toLowerCase()}`)
   .then(response=>setData(response.data.articles));
  
-  },locationPath)
+  },[locationPath])
  
   return (
         <main className='news'>
