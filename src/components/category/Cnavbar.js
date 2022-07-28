@@ -77,7 +77,7 @@ const closeNav=()=>{
                   <div className="sidenav">
                         <a href="#" className='closebtn' onClick={closeNav}>&times;</a>
                         <br />
-                        <li className="nav-item"><a href="/country/in" className="nav-link">Home</a></li>
+                        <li className="nav-item"><a href={`/category/${cat}`} className="nav-link">Home</a></li>
                        <div className="dropdown nav-item">
                               <a className="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Categories
